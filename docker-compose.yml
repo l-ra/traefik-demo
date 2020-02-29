@@ -66,10 +66,10 @@ services:
       - "traefik.enable=true"
 
       # secure traefik internal service - API
-      - "traefik.http.routers.keycloak.entrypoints=websecure"
-      - "traefik.http.routers.keycloak.rule=Host(`${APACHE_HOST}`)"
-      - "traefik.http.routers.keycloak.tls=true"
-      - "traefik.http.routers.keycloak.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.apache.entrypoints=websecure"
+      - "traefik.http.routers.apache.rule=Host(`${APACHE_HOST}`)"
+      - "traefik.http.routers.apache.tls=true"
+      - "traefik.http.routers.apache.tls.certresolver=letsencrypt"
 
     
 
