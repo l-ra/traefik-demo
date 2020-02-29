@@ -25,18 +25,18 @@ services:
       - "traefik.http.routers.traefik_api.service=api@internal"
 
       # secure traefik internal service - dashoboard
-      - "traefik.http.routers.traefik_api.entrypoints=websecure"
-      - "traefik.http.routers.traefik_api.rule=Host(`${TRAEFIK_HOST}`) && PathPrefix(`/`)"
-      - "traefik.http.routers.traefik_api.tls=true"
-      - "traefik.http.routers.traefik_api.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.traefik_api.middlewares[0]=basic_auth"
-      - "traefik.http.routers.traefik_api.service=dashboard@internal"
+      - "traefik.http.routers.traefik_dash.entrypoints=websecure"
+      - "traefik.http.routers.traefik_dash.rule=Host(`${TRAEFIK_HOST}`) && PathPrefix(`/`)"
+      - "traefik.http.routers.traefik_dash.tls=true"
+      - "traefik.http.routers.traefik_dash.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.traefik_dash.middlewares[0]=basic_auth"
+      - "traefik.http.routers.traefik_dash.service=dashboard@internal"
 
       # setup http -> https redirect
-      - "traefik.http.routers.traefik_api.entrypoints=web"
-      - "traefik.http.routers.traefik_api.rule=HostRegexp(`{host:.+}`)"
-      - "traefik.http.routers.traefik_api.middlewares[0]=redirecttohttps"
-      - "traefik.http.routers.traefik_api.service=dummy"
+      - "traefik.http.routers.httpsredir.entrypoints=web"
+      - "traefik.http.routers.httpsredir.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.httpsredir.middlewares[0]=redirecttohttps"
+      - "traefik.http.routers.httpsredir.service=dummy"
       - "traefik.http.services.dummy.loadBlancer.servers[0].url=http://nowhere.neverwhere"
 
       # setup basic auth middleware 
