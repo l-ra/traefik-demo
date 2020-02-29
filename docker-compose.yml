@@ -21,7 +21,7 @@ services:
       - "traefik.http.routers.traefik_api.rule=Host(`${TRAEFIK_HOST}`) && PathPrefix(`/api`)"
       - "traefik.http.routers.traefik_api.tls=true"
       - "traefik.http.routers.traefik_api.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.traefik_api.middlewares=[`basic_auth`]"
+      - "traefik.http.routers.traefik_api.middlewares=basic_auth"
       - "traefik.http.routers.traefik_api.service=api@internal"
 
       # secure traefik internal service - dashoboard
