@@ -1,0 +1,29 @@
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+providers:
+  docker:
+    watch: true
+    endpoint: "unix:///var/run/docker.sock" 
+    exposedByDefault: false
+    network: proxy
+  
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+api:
+  insecure: true
+  dashboard: true
+  
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      # modify following email - it is used as letsencrypt account identifier
+      email: admin@mydomain234.com
+      storage: /certs/acme.json
+      tlsChallenge: {}
+  
