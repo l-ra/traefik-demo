@@ -45,3 +45,31 @@ services:
       # https redirect
       - "traefik.http.middlewares.redirecttohttps.redirectScheme.scheme=https"
 
+  keycloak:
+    image: "jboss/keycloak"
+    container_name: "keycloak"
+    labels:
+      # enable traefik processing
+      - "traefik.enable=true"
+
+      # secure traefik internal service - API
+      - "traefik.http.routers.keycloak.entrypoints=websecure"
+      - "traefik.http.routers.keycloak.rule=Host(`${KEYCLOAK_HOST}`)"
+      - "traefik.http.routers.keycloak.tls=true"
+      - "traefik.http.routers.keycloak.tls.certresolver=letsencrypt"
+
+  apache:
+    image: "php:7.2-apache"
+    container_name: "apache"
+    labels:
+      # enable traefik processing
+      - "traefik.enable=true"
+
+      # secure traefik internal service - API
+      - "traefik.http.routers.keycloak.entrypoints=websecure"
+      - "traefik.http.routers.keycloak.rule=Host(`${APACHE_HOST}`)"
+      - "traefik.http.routers.keycloak.tls=true"
+      - "traefik.http.routers.keycloak.tls.certresolver=letsencrypt"
+
+    
+
