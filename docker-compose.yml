@@ -35,7 +35,7 @@ services:
       # setup http -> https redirect
       - "traefik.http.routers.httpsredir.entrypoints=web"
       - "traefik.http.routers.httpsredir.rule=HostRegexp(`{host:.+}`)"
-      - "traefik.http.routers.httpsredir.middlewares[0]=redirecttohttps"
+      - "traefik.http.routers.httpsredir.middlewares=redirecttohttps"
       - "traefik.http.routers.httpsredir.service=dummy"
       - "traefik.http.services.dummy.loadBalancer.server.url=http://nowhere.neverwhere"
 
