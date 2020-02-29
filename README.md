@@ -12,11 +12,11 @@ Setup:
 2. the user you will need to have sudo privilege
 3. clone the repository `git clone https://github.com/l-ra/traefik-demo.git`
 4. enter the repo folder `cd traefik-demo` 
-3. install docker using `install-docker.sh` script
-4. create `setenv` file using `cp setenv.tmpl setenv`
-5. edit `setenv` file to meet your needs
-6. create `traefik.yaml` file using `cp traefik.yaml.tmpl traefik.yaml`
-6. edit `traefik.yaml` to change email address you want to use for Let's Encrypt account
-7. start the containers using `start.sh`
+5. install docker using `install-docker.sh` script
+6. create `setenv` file using `cp setenv.tmpl setenv`
+7. edit `setenv` file to meet your needs
+8. create `traefik.yaml` file using `cp traefik.yaml.tmpl traefik.yaml`
+9. edit `traefik.yaml` to change email address you want to use for Let's Encrypt account
+10. start the containers using `start.sh` to run in foreground or `start-daemon.sh` to run at background
 
 
