@@ -7,6 +7,8 @@ if [ ! -f ${SETENV} ]; then
   exit 1
 fi
 
+. ${SETENV}
+
 sudo chown root:root $DIR/certs/acme.json
 sudo chmod 600 $DIR/certs/acme.json
 
