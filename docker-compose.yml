@@ -5,6 +5,7 @@ services:
   traefik:
     image: "traefik:v2.1"
     container_name: "traefik"
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -49,6 +50,7 @@ services:
   keycloak:
     image: "jboss/keycloak"
     container_name: "keycloak"
+    restart: always
     labels:
       # enable traefik processing
       - "traefik.enable=true"
@@ -63,6 +65,7 @@ services:
   apache:
     image: "php:7.2-apache"
     container_name: "apache"
+    restart: always
     volumes:
       - type: bind
         source: ./apache/html
