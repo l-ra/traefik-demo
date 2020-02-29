@@ -1,6 +1,6 @@
 global:
-    checkNewVersion: false
-    sendAnonymousUsage: false
+  checkNewVersion: false
+  sendAnonymousUsage: false
   
   providers:
     docker:
