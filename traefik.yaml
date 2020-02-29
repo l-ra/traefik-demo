@@ -1,0 +1,31 @@
+global:
+    checkNewVersion: false
+    sendAnonymousUsage: false
+  
+  providers:
+    docker:
+      watch: true
+      endpoint: "unix:///var/run/docker.sock" 
+      exposedByDefault: false
+      network: proxy
+    file:
+      directory: /config/
+      watch: true
+  
+  entryPoints:
+    web:
+      address: ":80"
+    websecure:
+      address: ":443"
+  
+  api:
+    insecure: true
+    dashboard: true
+  
+  certificatesResolvers:
+    letsencrypt:
+      acme:
+        email: lra@r73.info
+        storage: /certs/acme.json
+        tlsChallenge: {}
+  

@@ -26,3 +26,10 @@ sudo apt-get install -y \
 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+ sudo systemctl enable docker.service
+ sudo systemctl start docker.service
+
+ sudo gpasswd --add ${USER} docker
+
+ echo "Now logout and login again and you will be able to use docker with current user account ${USER}"
