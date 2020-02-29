@@ -40,6 +40,6 @@ services:
       - "traefik.http.services.dummy.loadBalancer.server.url=http://nowhere.neverwhere"
 
       # setup basic auth middleware 
-      - "traefik.http.middlewares.basic_auth.basicAuth.users[0]=${BASIC_AUTH_ENTRY}"
+      - "traefik.http.middlewares.basic_auth.basicAuth.users[0]=`${BASIC_AUTH_ENTRY}`"
       - "traefik.http.middlewares.redirecttohttps.redirectScheme.scheme=https"
 
