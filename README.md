@@ -17,3 +17,5 @@ Setup:
 5. edit `setenv` file to meet your needs
 6. edit traefik.yaml to change email address you want to use for Let's Encrypt account
 7. start the containers using `start.sh`
+
+
