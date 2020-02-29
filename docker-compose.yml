@@ -41,5 +41,7 @@ services:
 
       # setup basic auth middleware 
       - "traefik.http.middlewares.basic_auth.basicAuth.users[0]=`${BASIC_AUTH_ENTRY}`"
+
+      # https redirect
       - "traefik.http.middlewares.redirecttohttps.redirectScheme.scheme=https"
 
