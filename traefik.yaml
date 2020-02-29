@@ -8,9 +8,6 @@ global:
       endpoint: "unix:///var/run/docker.sock" 
       exposedByDefault: false
       network: proxy
-    file:
-      directory: /config/
-      watch: true
   
   entryPoints:
     web:
@@ -25,7 +22,8 @@ global:
   certificatesResolvers:
     letsencrypt:
       acme:
-        email: lra@r73.info
+        # modify following email - it is used as letsencrypt account identifier
+        email: admin@mydomain234.com
         storage: /certs/acme.json
         tlsChallenge: {}
   

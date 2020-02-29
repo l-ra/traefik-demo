@@ -7,7 +7,10 @@ if [ ! -f ${SETENV} ]; then
   exit 1
 fi
 
-$BASIC_AUTH_ENTRY=$(echo ${BASIC_AUTH_PASSWORD} | docker run -i --rm  httpd htpasswd -ni ${BASIC_AUTH_USER})
+sudo chown root:root $DIR/certs/acme.json
+sudo chmod 600 $DIR/certs/acme.json
+
+export BASIC_AUTH_ENTRY=$(echo ${BASIC_AUTH_PASSWORD} | docker run -i --rm  httpd htpasswd -ni ${BASIC_AUTH_USER})
 
 . ${DIR}/setenv
 docker-compose up -d -f ${DIR}/docker-compose.yml 
