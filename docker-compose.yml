@@ -37,7 +37,7 @@ services:
       - "traefik.http.routers.httpsredir.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.httpsredir.middlewares[0]=redirecttohttps"
       - "traefik.http.routers.httpsredir.service=dummy"
-      - "traefik.http.services.dummy.loadBlancer.servers[0].url=http://nowhere.neverwhere"
+      - "traefik.http.services.dummy.loadBalancer.servers[0].url=http://nowhere.neverwhere"
 
       # setup basic auth middleware 
       - "traefik.http.middlewares.basic_auth.basicAuth.users[0]=${BASIC_AUTH_ENTRY}"
