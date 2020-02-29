@@ -45,6 +45,7 @@ services:
       # https redirect
       - "traefik.http.middlewares.redirecttohttps.redirectScheme.scheme=https"
 
+# =====================================================
   keycloak:
     image: "jboss/keycloak"
     container_name: "keycloak"
@@ -58,9 +59,15 @@ services:
       - "traefik.http.routers.keycloak.tls=true"
       - "traefik.http.routers.keycloak.tls.certresolver=letsencrypt"
 
+# =====================================================
   apache:
     image: "php:7.2-apache"
     container_name: "apache"
+    volumes:
+      - type: bind
+        source: ./apache/html
+        target: /var/www/html
+
     labels:
       # enable traefik processing
       - "traefik.enable=true"
