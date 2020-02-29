@@ -15,7 +15,8 @@ Setup:
 3. install docker using `install-docker.sh` script
 4. create `setenv` file using `cp setenv.tmpl setenv`
 5. edit `setenv` file to meet your needs
-6. edit traefik.yaml to change email address you want to use for Let's Encrypt account
+6. create `traefik.yaml` file using `cp traefik.yaml.tmpl traefik.yaml`
+6. edit `traefik.yaml` to change email address you want to use for Let's Encrypt account
 7. start the containers using `start.sh`
 
 
