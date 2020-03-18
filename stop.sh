@@ -9,6 +9,8 @@ fi
 
 . ${SETENV}
 
+BASIC_AUTH_FILE=$DIR/.traefik-basic-auth 
+
 export BASIC_AUTH_ENTRY=$(cat ${BASIC_AUTH_FILE})
 
 docker-compose down 
